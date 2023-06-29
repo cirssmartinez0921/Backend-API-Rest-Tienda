@@ -2,7 +2,7 @@
 
 import { Router, Request, Response} from "express";
 import routerUsers from "./users";
-import routerProducts from "./users";
+import routerProducts from "./products";
 
 const router = Router();
 /**middleware */

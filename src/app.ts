@@ -3,8 +3,6 @@ import  express, {Request, Response}  from "express";
 import routeMain from "./routes";
 
 
-
-
 const app = express();
 
 /**routing: enrutamiento */
