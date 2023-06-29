@@ -2,9 +2,9 @@
   "name": "backend-tienda",
   "version": "1.0.0",
   "description": "API RES: API rest para candy pets",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./src/app.ts"
   },
   "keywords": [
     "Node",
