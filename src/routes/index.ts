@@ -1,15 +1,13 @@
 //**archivo central de enrutamiento */
 
 import { Router, Request, Response} from "express";
+import routerUsers from "./users";
+import routerProducts from "./users";
 
 const router = Router();
-
-router.get("/users", (req: Request, res: Response )=> {
-    const msg = " users";
-
-    console.log(msg);
-    res.send(`<h1>${msg}<h1>`)
+/**middleware */
+router.use ("/users", routerUsers);       //http:localhost:3000/api/users
+router.use ("/products",routerProducts);  //http:localhost:3000/api/products
     
-} ) 
 
 export default router;

@@ -25,7 +25,8 @@ app.get ("/home", (req, res) => {
     
 })
 /**Middleware */
-app.use("/", routeMain);
+//http:localhost:3000/api
+app.use("/api", routeMain);
 
 app.listen(3000, () =>{
     console.log("servidor lanzado en el puerto 3000 ");
