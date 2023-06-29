@@ -1,17 +1,20 @@
-import  express  from "express";
+
+import  express, {Request, Response}  from "express";
+
+
 
 const app = express();
 
 /**routing: enrutamiento */
-//http://localhost:3000/
+//http://localhost:3000/  (EndPoint)
 
-app.get("/", ( req, res ) => {
+app.get("/", ( req: Request, res: Response ) => {
     const messeage = "bienbenido a la API  de tienda"
     console.log( messeage );
     
    res.send( `<h1>${messeage}<h1>`);
 });
-//http://localhost:3000/home
+//http://localhost:3000/home    (EndPoint)
 app.get ("/home", (req, res) => {
     const namepage = "home";
 
