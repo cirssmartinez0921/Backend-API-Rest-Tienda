@@ -1,8 +1,8 @@
 //**archivo central de enrutamiento */
 
 import { Router, Request, Response} from "express";
-import routerUsers from "./users";
-import routerProducts from "./products";
+import routerUsers from "./users.route";
+import routerProducts from "./products.route";
 
 const router = Router();
 /**middleware */

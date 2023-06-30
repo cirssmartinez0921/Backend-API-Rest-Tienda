@@ -1,6 +1,7 @@
 import "dotenv/config";
 import  express, {Request, Response}  from "express";
-import routeMain from "./routes";
+import routeMain from "./routes/index.route";
+import db from "./config/mongo.config";
 
 
 const app = express();
@@ -26,6 +27,9 @@ app.get ("/home", (req, res) => {
 /**Middleware */
 //http:localhost:3000/api
 app.use("/api", routeMain);
+
+// db()
+//   .then(()=> console.log("mongoDB se conecto correctamente"));
 
 app.listen(PORT, () =>{
     console.log(`servidor en http://localhost:${PORT}`);
