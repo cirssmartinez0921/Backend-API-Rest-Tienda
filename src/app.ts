@@ -28,8 +28,9 @@ app.get ("/home", (req, res) => {
 //http:localhost:3000/api
 app.use("/api", routeMain);
 
-// db()
-//   .then(()=> console.log("mongoDB se conecto correctamente"));
+db()
+  .then(()=> console.log("mongoDB se conecto correctamente"))
+  .catch(()=> console.error("mongoDB sufre un problema de conexion"));
 
 app.listen(PORT, () =>{
     console.log(`servidor en http://localhost:${PORT}`);
