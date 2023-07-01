@@ -25,6 +25,7 @@ app.get ("/home", (req, res) => {
     
 })
 /**Middleware */
+app.use(express.json());
 //http:localhost:3000/api
 app.use("/api", routeMain);
 

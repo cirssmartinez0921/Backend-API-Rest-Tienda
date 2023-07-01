@@ -27,6 +27,6 @@ const productsSchema = new Schema (
   
   );
 //   define el modelo a partir de la estructira requerida por mongoose
-  const productModel = model ("Products", productsSchema);
+  const ProductModel = model ("Products", productsSchema);
 
-  export default productModel;
+  export default ProductModel;
