@@ -1,6 +1,12 @@
 // interface: Modela y define la estructura de datos y sus tipos (solo eso)
 export  interface product {
-    name: string;
-    price: number;
-    description: string;
+   categoria :string;
+   subcategoria: string;
+   nombre: string;
+   cantidad : number;
+   precio : number;
+   marca : string;
+   imagen :string;
+   inventario : number;
+   fechaDeVencimiento : Number;
 }

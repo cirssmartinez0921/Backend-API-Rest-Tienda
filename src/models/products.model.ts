@@ -8,17 +8,45 @@ import { getProducts } from "../controllers/product.controller";
 const productsSchema = new Schema (
     // objeto principal definira atributos del modelo
     {
-        name: {
+        categoria: {
             type: String,
             required: true
         },
-        price :{
+        subcategoria :{
+            type: String,
+            required : false
+        },
+         nombre: {
+            type: String,
+            required : true
+        },
+         cantidad : {
             type: Number,
             required : false
         },
-        description: {
-            type: String
+         precio: {
+            type: Number,
+            required : false
+        },
+        marca :{
+            type : String,
+            required : true
+        },
+        imagen : {
+            type: String,
+            required : false
+        },
+        inventario : {
+            type: Number,
+        required: true    
+        },
+        fechaDeVencimiento: {
+            type : Date,
+            default: undefined
+
         }
+
+
     },
     // definira configuracion  que se pueden aplicar en mogoose para ese objeto
     {
