@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 //http://localhost:3000/  (EndPoint)
 
 app.get("/", ( req: Request, res: Response ) => {
-    const messeage: string = "bienbenido a la API  de tienda"
+    const messeage: string = "bienbenido a la API  de tienda";
     console.log( messeage );
     
    res.send( `<h1>${messeage}<h1>`);
