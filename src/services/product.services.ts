@@ -6,7 +6,11 @@ const insertProduct = async (producto: product) =>{
     
     return response;
 }
+const getAllProducts = async () => {
+    return await ProductModel.find({});
+}
 
     export {
-        insertProduct
+        insertProduct,
+        getAllProducts,
     }
