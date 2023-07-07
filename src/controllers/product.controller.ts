@@ -12,12 +12,21 @@ async function getProduct  (req: Request, res: Response)  {
     res.send ("obtiene un producto por ID")
 }  
 async function createproduct  (req: Request, res: Response)  {
+    try {
+        const data = await insertProduct (req.body);
+
+        console.log(data);
+        res.json (data);
+    } catch (error) {
+        console.log( 'Error en la insercion del producto' );
+        res.json ({
+            msg: "ERROR_INSERT_PRODUCT"
+        })
+    }
+
     console.log(req.body);
     
-   const data = await insertProduct (req.body);
-
-   console.log(data);
-   res.json (data);
+   
    
     
 }
