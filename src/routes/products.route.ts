@@ -6,7 +6,7 @@ import {createproduct, deleteproduct, getProduct, getProducts, updateproduct} fr
 const router = Router();
 // http://localhost:3000/api/products
 router.get( "/", getProducts );
-router.get ( "/", getProduct );
+router.get ( "/:id", getProduct );
 router.post( "/", createproduct );
 router.put ( "/", updateproduct );
 router.delete ( "/", deleteproduct );

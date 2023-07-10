@@ -1,26 +1,40 @@
 import { Request, Response } from "express";
 import { getAllProducts, insertProduct } from "../services/product.services";
+import ProductModel from "../models/products.model";
 
 
 async function getProducts (req: Request, res: Response)  {
+
     try {
         const
-               response = await getAllProducts ();
-               console.log(response);
-               res.json (response);
-               
-    } catch (error) {
-        console.log( 'Error en la obtencion del listado de productos' );
-        res.json ({
-            msg: "ERROR_PRODUCT_LIST"
-        })
+            response = await getAllProducts(),
+            data = response ? response : 'NOT_FOUND';   // Pendiente
+
+        console.log( data );
+
+        res.json( data );
+
+    } catch( error ) {
+        console.log( `Error en la extracion del listado de productos` );
+        res.json({
+            msg: 'ERROR_PRODUCT_LIST'
+        });
     }
 }
 async function getProduct  (req: Request, res: Response)  {
-    console.log("obtiene un producto por ID");
-    res.send ("obtiene un producto por ID")
+
+    const productId = req.params.id;
+   try {
+    const 
+           response = await ProductModel.findOne ({_id: productId}); 
+           res.json (response)
+   } catch (error) {
+    
+   }
 }  
 async function createproduct  (req: Request, res: Response)  {
+
+   
     try {
         const data = await insertProduct (req.body);
 
@@ -36,8 +50,6 @@ async function createproduct  (req: Request, res: Response)  {
     console.log(req.body);
     
    
-   
-    
 }
 async function updateproduct  (req: Request, res: Response)  {
     console.log(" actualiza un producto por ID");
