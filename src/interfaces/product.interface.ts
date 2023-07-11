@@ -1,5 +1,5 @@
 // interface: Modela y define la estructura de datos y sus tipos (solo eso)
-export  interface product {
+export  interface Product {
    categoria :string;
    subcategoria: string;
    nombre: string;

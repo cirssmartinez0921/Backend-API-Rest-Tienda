@@ -1,39 +1,40 @@
-import "dotenv/config";
-import  express, {Request, Response}  from "express";
-import routeMain from "./routes/index.route";
+import 'dotenv/config';
+import express, { Request, Response } from 'express';
+import routeMain from './routes/index.route';
 import db from "./config/mongo.config";
-
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-/**routing: enrutamiento */
-//http://localhost:3000/  (EndPoint)
+/** Routing: Enrutamiento */
+// http://localhost:3000/       (EndPoint)
+app.get( '/', ( req: Request, res: Response ) => {
+    const message : string = 'Bienvenido a la API de Ecommerce';
 
-app.get("/", ( req: Request, res: Response ) => {
-    const messeage: string = "bienbenido a la API  de tienda";
-    console.log( messeage );
-    
-   res.send( `<h1>${messeage}<h1>`);
+    console.log( message );     // Mensaje a la terminal
+    res.send( `<h1>${ message }</h1>` );        // Mensaje al navegador
 });
-//http://localhost:3000/home    (EndPoint)
-app.get ("/home", (req, res) => {
-    const namepage : string = "home";
 
-    console.log(namepage);
-    res.send (`<h1>${namepage}<h1>`);
-    
-})
-/**Middleware */
-app.use(express.json());
-//http:localhost:3000/api
-app.use("/api", routeMain);
+// http://localhost:3000/home   (EndPoint)
+app.get( '/home', ( req: Request, res: Response ) => {
+    const namePage : string = 'Home';
 
+    console.log( namePage );
+    res.send( `<h1>${ namePage }</h1>` );
+});
+
+/** Implementando Middlewares a Express */
+app.use( express.json() );      // 
+
+// http://localhost:3000/api
+app.use( '/api', routeMain );
+
+/** Resolvemos la promesa: Conexion a Mongo usando Mongoose */
 db()
-  .then(()=> console.log("mongoDB se conecto correctamente"))
-  .catch(()=> console.error("mongoDB sufre un problema de conexion"));
+    .then( () => console.log( `MongoDB se conecto correctamente` ) )
+    .catch( () => console.error( `MongoDB sufre un problema de conexión` ) );
 
-app.listen(PORT, () =>{
-    console.log(`servidor en http://localhost:${PORT}`);
-    
-})
+// Lanza el servidor web
+app.listen( PORT, () => {
+    console.log( `Servidor en http://localhost:${ PORT }` );
+});

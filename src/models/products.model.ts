@@ -1,8 +1,8 @@
 // la estructura que definamos aqui, se vera reflejada en  nuestra base de datos
 
-import mongoose from "mongoose";
+
 import { Schema, model } from "mongoose";
-import { getProducts } from "../controllers/product.controller";
+
 
 // define estructura de datos en la base de datos requerida por mongoose
 const productsSchema = new Schema (
