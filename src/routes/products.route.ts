@@ -5,12 +5,17 @@ import { autheticationUser } from "../middleware/authentication.middleware";
 
 const router = Router();
 // http://localhost:3000/api/products/
-router.get( '/', autheticationUser, getProducts );                 // Obtiene lista de TODOS los productos
+router.get( '/', getProducts );                 // Obtiene lista de TODOS los productos
 router.get( '/:id', getProduct );               // Obtiene producto por ID
-router.post( '/', createProduct );              // Crea producto
-router.put( '/:id', updateProduct );            // Actualiza TODOS los campos del producto
-router.patch( '/:id', partialUpdateProduct );   // Actualiza algunos campos del producto
-router.delete( '/:id', deleteProduct );         // Elimina el producto
+router.post( '/', autheticationUser, createProduct );              // Crea producto
+router.put( '/:id', autheticationUser, updateProduct );            // Actualiza TODOS los campos del producto
+router.patch( '/:id', autheticationUser, partialUpdateProduct );   // Actualiza algunos campos del producto
+router.delete( '/:id', autheticationUser, deleteProduct );   
+router. get( '/user/:id', (req: Request, res: Response) => {
+    res.json({
+        msg: "TODO: obtener todos los productos por usuario",
+    });
+});  
 
 
 export default router;
