@@ -8,5 +8,6 @@ export  interface Product {
    marca : string;
    imagen :string;
    inventario : number;
+   userId: Number;
    fechaDeVencimiento : Number;
 }

@@ -44,9 +44,11 @@ const productsSchema = new Schema (
             type : Date,
             default: undefined
 
+        },
+        userId: {
+            type: Number,
+            required: true
         }
-
-
     },
     // definira configuracion  que se pueden aplicar en mogoose para ese objeto
     {
